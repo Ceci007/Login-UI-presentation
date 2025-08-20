@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import Checkbox from 'expo-checkbox';
+import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
 import Constants from 'expo-constants';
 
 const statusBarHeight = Constants.statusBarHeight;
@@ -19,6 +20,22 @@ export default function App() {
           <Text style={styles.googleButtonText}>Continue with Google</Text>
         </TouchableOpacity>
         <Text style={styles.separator}>Or login with</Text>
+        <TextInput style={styles.input} placeholder='superunicorns@gmail.com' />
+        <TextInput type="password" style={styles.input} placeholder='********' />
+        <View style={styles.iWillRememberYou}>
+          <View style={styles.checkboxContainer}>
+            <Checkbox style={styles.checkbox} />
+            <Text style={styles.checkboxText}>Remember me</Text>
+          </View>
+          <Text style={styles.forgotPassword}>Forgot Password?</Text>
+        </View>
+        <TouchableOpacity style={styles.signInButton}>
+          <Text style={styles.signInButtonText}>Log In</Text>
+        </TouchableOpacity>
+        <View style={styles.noAccount}>
+          <Text style={styles.noAccountText}>Don't have an account?</Text>
+          <Text style={styles.signUpText}>Sign Up</Text>
+        </View>
       </View>
     </View>
   );
@@ -52,7 +69,7 @@ const styles = StyleSheet.create({
   },
   form: {
     padding: 30,
-    width: 380,
+    width: 327, 
     backgroundColor: '#fff',
     position: 'absolute',
     top: '50%',
@@ -80,5 +97,52 @@ const styles = StyleSheet.create({
     paddingVertical: 24,
     textAlign: 'center',
     color: 'rgba(0, 0, 0, 0.6)'
+  },
+  input: {
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#EEEEEE',
+    padding: 10,
+    marginBottom: 24,
+  },
+  checkboxContainer: {
+    flexDirection: 'row',
+    color: 'rgba(0, 0, 0, 0.6)'
+  },
+  checkboxText: {
+    marginLeft: 10,
+  },
+  forgotPassword: {
+    color: '#2567E8',
+    fontWeight: 600,
+  },
+  iWillRememberYou: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  signInButton: {
+    marginTop: 20,
+    padding: 15,
+    backgroundColor: '#2567E8',
+    borderRadius: 12,
+    alignItems: 'center', 
+  },
+  signInButtonText: {
+    color: '#fff'
+  },
+  noAccount: {
+    marginTop: 10,
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  noAccountText: {
+    color: 'rgba(0, 0, 0, 0.6)',
+    marginRight: 10,
+  },
+  signUpText: {
+    color: '#2567E8',
+    fontWeight: 600
   }
 });
